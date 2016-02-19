@@ -35,12 +35,7 @@ class ControlCenter {
         let isDeadEnd = (myWallInfo.numberOfWalls == 3)
 
         
-        // Step 3.2
-        // Two-way Path - else-if statements
-        
-        // TODO: If the robot encounters a two way path and there is NO wall ahead it should continue forward.
-        
-        // TODO: If the robot encounters a two way path and there IS a wall ahead, it should turn in the direction of the clear path.
+       
         
         
         // TODO: If the robot encounters a three way junction and there IS a wall ahead, it should randomly rotate right or left. Uncomment the code below.
@@ -61,7 +56,8 @@ class ControlCenter {
         if isTwoWayPath && !robotIsBlocked {
             myRobot.move()
         }
-        // TODO: If the robot encounters a two way path and there IS a wall ahead, it should randomly rotate.
+        
+        // TODO: If the robot encounters a two way path and there IS a wall ahead, it should turn in the direction of the clear path.
         
         if isTwoWayPath && robotIsBlocked {
             turnTowardClearPath(myRobot, wallInfo: (up: myWallInfo.up, right: myWallInfo.right, down: myWallInfo.down, left: myWallInfo.left, numberOfWalls: myWallInfo.numberOfWalls))
