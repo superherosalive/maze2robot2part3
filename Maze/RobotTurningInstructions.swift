@@ -14,13 +14,29 @@ extension ControlCenter {
         let randomNumber = arc4random() % 2
         
         // You may want to paste your Part 1 implementation of randomlyRotateRightOrLeft(robot: ComplexRobotObject) here.
+        if randomNumber == 0{
+            robot.rotateRight()
+            
+        }
+        
+        if randomNumber == 1{
+            robot.rotateLeft()
+        }
+
     }
     
     func continueStraightOrRotate(robot: ComplexRobotObject, wallInfo:(up: Bool, right: Bool, down: Bool, left: Bool, numberOfWalls: Int)) {
         let randomNumber = arc4random() % 2
         
         // You may want to paste your Part 1 implementation of continueStraightOrRotate(robot: ComplexRobotObject) here.
+        if randomNumber == 0{
+             turnTowardClearPath(robot, wallInfo: (up: wallInfo.up, right: wallInfo.right, down: wallInfo.down, left: wallInfo.left, numberOfWalls: wallInfo.numberOfWalls))
+        }
         
+        if randomNumber == 1{
+            robot.move()
+        }
+
         // Step 3.2
         // TODO: Instead of calling randomlyRotateRightOrLeft() call turnTowardClearPath() when the robot has randomly chosen to rotate.
     }
@@ -29,11 +45,18 @@ extension ControlCenter {
         
         // Step 3.1
         // TODO: Tell the robot which way to turn toward the clear path. There are four cases where the robot should rotate to the right (the first two have been done for you--uncomment the code below). Write the remaining two cases where the robot should rotate to the right. For all other cases, the robot should rotate to the left.
-        //        if robot.direction == .Left && wallInfo.down {
-        //            robot.rotateRight()
-        //        } else if robot.direction == .Up && wallInfo.left {
-        //            robot.rotateRight()
-        //        }
+                if robot.direction == .Left && wallInfo.down {
+                    robot.rotateRight()
+                } else if robot.direction == .Up && wallInfo.left {
+                    robot.rotateRight()
+                } else if robot.direction == .Right && wallInfo.up {
+                    robot.rotateRight()
+                } else if robot.direction == .Down && wallInfo.right {
+                    robot.rotateRight()
+                } else {
+                    robot.rotateLeft()
+                }
+        
     }
 
 }
